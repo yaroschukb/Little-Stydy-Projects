@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<nav>
+		<ul class="menu">
+			<li><a href="">Home</a></li>
+			<li><a href="">Order Status</a></li>
+			<li><a href="">Tweets</a></li>
+			<li><a href="">Read our History</a></li>
+			<li><a href="">Contact us</a></li>
+		</ul>
+	</nav>
+	<div class="wrapper">
+		<p>Lorem ipsum dolor sit amet, <a href="">consectetur</a> adipisicing elit. Praesentium deleniti <a href="">iure</a> culpa necessitatibus eaque ullam <a href="">similique</a> odio soluta, tempora, <a href="">pariatur</a> magni. Minima vel <a href="">sapiente</a> autem alias voluptatum fugit consequuntur possimus!</p>
+		<p><span><a href="">Lorem</a> ipsum dolor sit amet, <a href="">consectetur</a> adipisicing <a href="">elit</a>. Corporis in, rerum sequi omnis facere hic, error, iusto labore voluptatem rem deserunt velit? Excepturi, natus pariatur quidem hic provident, at nobis!</span>
+		<span>Error natus <a href="">quae</a> molestias, optio quam. Accusamus debitis minus excepturi voluptatum? Molestias earum inventore ab eligendi aspernatur iste similique architecto, ullam repellendus voluptatibus optio magnam eaque cupiditate, est aliquam, aperiam!</span>
+		
+		
+		
+	</div>
+
+	<script>
+		const triggers = document.querySelectorAll('a');
+		const highlight = document.createElement('span');
+		highlight.classList.add('highlight');
+		document.body.append(highlight);
+
+		function highlightLink() {
+			const linkCoords = this.getBoundingClientRect();
+
+			const coords = {
+				width: linkCoords.width,
+				height: linkCoords.height,
+				top: linkCoords.top + window.pageYOffset,
+				left: linkCoords.left + window.pageXOffset 
+			};
+			
+			highlight.style.width = `${coords.width}px`;
+			highlight.style.height  = `${coords.height}px`;
+			highlight.style.transform  = `translate(${coords.left}px, ${coords.top}px)`;
+		};
+
+		triggers.forEach( a => a.addEventListener('mouseenter', highlightLink));
+
+	</script>
+</body>
+</html>
